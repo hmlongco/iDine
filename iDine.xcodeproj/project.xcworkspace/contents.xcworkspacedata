@@ -2,6 +2,6 @@
 <Workspace
    version = "1.0">
    <FileRef
-      location = "self:iDine.xcodeproj">
+      location = "self:../iDine/Resources">
    </FileRef>
 </Workspace>
