@@ -69,8 +69,8 @@ fileprivate struct FavoritesButton: View {
         Button(action: { self.favorites.toggleFavorite(self.item) }) {
             Image(systemName: favorites.isFavorite(item) ? "star.fill" : "star")
                 .foregroundColor(.accentColor)
-                .scaleEffect(1.2)
         }
+        .frame(width: 25, height: 25) // improve hit target
     }
 }
 

@@ -53,20 +53,17 @@ struct AppTabView: View {
 
             .overlay(MessageOverlayView(), alignment: .top)
 
-            .onAppear {
-                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
-                    self.messages.show(message: "This is a message! Short but informative!")
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
-                    self.messages.show(error: "This is an error! You have no idea how much of an error this could be!")
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
-                    self.messages.show(error: "This is another error! I warned you!")
-                }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 14) {
-                    self.messages.hide()
-                }
-            }
+//            .onAppear {
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
+//                    self.messages.show(message: "This is a message! Short but informative!")
+//                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 4) {
+//                    self.messages.show(error: "This is an error! You have no idea how much of an error this could be!")
+//                }
+//                DispatchQueue.main.asyncAfter(deadline: .now() + 6) {
+//                    self.messages.show(error: "This is another error! I warned you!")
+//                }
+//            }
     }
 }
 
