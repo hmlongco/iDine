@@ -11,6 +11,8 @@ import SwiftUI
 struct DetailView: View {
 
     @EnvironmentObject var order: Order
+    @State var rating: Int = 0
+    @State var showRatingSheet = false
 
     let item: MenuItem
 
@@ -39,6 +41,7 @@ struct DetailView: View {
                 .padding([.leading, .trailing])
 
             HStack {
+                RatingsView(item: item)
                 Spacer()
                 Text(item.formattedPrice)
                     .bold()
@@ -67,7 +70,7 @@ fileprivate struct FavoritesButton: View {
     let item: MenuItem
     var body: some View {
         Button(action: { self.favorites.toggleFavorite(self.item) }) {
-            Image(systemName: favorites.isFavorite(item) ? "star.fill" : "star")
+            Image(systemName: favorites.isFavorite(item) ? "heart.fill" : "heart")
                 .foregroundColor(.accentColor)
         }
         .frame(width: 25, height: 25) // improve hit target
@@ -84,7 +87,6 @@ struct PhotoCredit: View {
             .foregroundColor(.white)
     }
 }
-
 
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {

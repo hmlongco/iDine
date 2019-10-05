@@ -28,7 +28,7 @@ struct AppTabView: View {
         TabView(selection: $appState.currentTab) {
             FavoritesView()
                 .tabItem {
-                    Image(systemName: "star")
+                    Image(systemName: "heart")
                         .scaleEffect(1.5)
                     Text("Favorites")
                     }
@@ -48,10 +48,6 @@ struct AppTabView: View {
                     }
                 .tag(AppTabs.order)
             }
-
-            .accentColor(.red)
-
-            .overlay(MessageOverlayView(), alignment: .top)
 
 //            .onAppear {
 //                DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
