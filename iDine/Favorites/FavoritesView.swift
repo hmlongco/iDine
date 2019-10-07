@@ -11,7 +11,7 @@ import SwiftUI
 struct FavoritesView: View {
 
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var favorites: FavoriteService
+    @EnvironmentObject var favorites: FavoritesService
     @EnvironmentObject var menu: MenuService
 
     var body: some View {
@@ -44,6 +44,6 @@ struct FavoritesView_Previews: PreviewProvider {
     static var previews: some View {
         FavoritesView()
             .environmentObject(AppState())
-            .environmentObject(FavoriteService())
+            .environmentObject(FavoritesService())
     }
 }

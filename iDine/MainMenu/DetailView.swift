@@ -17,43 +17,45 @@ struct DetailView: View {
     let item: MenuItem
 
     var body: some View {
-        VStack {
-            Image(item.mainImage)
-                .saturation(1.25)
-                .overlay(PhotoCredit(text: item.photoCredit).offset(x: -5, y: -5), alignment: .bottomTrailing)
+        ScrollView(.vertical) {
+            VStack {
+                Image(item.mainImage)
+                    .saturation(1.25)
+                    .overlay(PhotoCredit(text: item.photoCredit).offset(x: -5, y: -5), alignment: .bottomTrailing)
 
-            HStack {
-                if order.ordered(item) {
-                    Text("√")
-                        .font(.footnote)
-                }
-                Text(item.name)
-                    .font(.headline)
-                    .layoutPriority(1)
-                Spacer()
-                ItemRestrictionView(restrictions: item.restrictions)
-                }
-                .animation(.default)
-                .padding()
-
-            Text(item.description)
-                .layoutPriority(1)
-                .padding([.leading, .trailing])
-
-            HStack {
-                RatingsView(item: item)
-                Spacer()
-                Text(item.formattedPrice)
-                    .bold()
-                }
-                .padding()
-
-            Button(order.ordered(item) ? "Add Another One" : "Add To Order") { self.orderNow() }
-                    .font(.headline)
-                    .padding()
+                HStack {
+                    if order.ordered(item) {
+                        Text("√")
+                            .font(.footnote)
+                    }
+                    Text(item.name)
+                        .font(.headline)
+                        .layoutPriority(1)
+                    Spacer()
+                    ItemRestrictionView(restrictions: item.restrictions)
+                    }
                     .animation(.default)
+                    .padding()
 
-            Spacer()
+                Text(item.description)
+                    .layoutPriority(1)
+                    .padding([.leading, .trailing])
+
+                HStack {
+                    RatingsSummaryView(item: item)
+                    Spacer()
+                    Text(item.formattedPrice)
+                        .bold()
+                    }
+                    .padding()
+
+                Button(order.ordered(item) ? "Add Another One" : "Add To Order") { self.orderNow() }
+                        .font(.headline)
+                        .padding()
+                        .animation(.default)
+
+                Spacer()
+            }
         }
         .navigationBarTitle("Details", displayMode: .inline)
         .navigationBarItems(trailing: FavoritesButton(item: item))
@@ -66,7 +68,7 @@ struct DetailView: View {
 }
 
 fileprivate struct FavoritesButton: View {
-    @EnvironmentObject var favorites: FavoriteService
+    @EnvironmentObject var favorites: FavoritesService
     let item: MenuItem
     var body: some View {
         Button(action: { self.favorites.toggleFavorite(self.item) }) {
@@ -91,7 +93,7 @@ struct PhotoCredit: View {
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(item: MenuItem.example)
-            .environmentObject(FavoriteService())
+            .environmentObject(FavoritesService())
             .environmentObject(Order())
     }
 }

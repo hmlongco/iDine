@@ -13,8 +13,8 @@ struct SystemServices: ViewModifier {
     static var appState: AppState = AppState()
     static var menu = MenuService()
     static var messages = MessageService()
-    static var favorites = FavoriteService()
-    static var ratings = RatingService()
+    static var favorites = FavoritesService()
+    static var ratings = RatingsService()
     static var order = Order()
 
     func body(content: Content) -> some View {

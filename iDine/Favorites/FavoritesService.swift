@@ -1,5 +1,5 @@
 //
-//  FavoriteService.swift
+//  FavoritesService.swift
 //  iDine
 //
 //  Created by Michael Long on 9/22/19.
@@ -8,7 +8,7 @@
 
 import Foundation
 
-class FavoriteService: ObservableObject {
+class FavoritesService: ObservableObject {
 
     @Published var items: [MenuItem] = []
 

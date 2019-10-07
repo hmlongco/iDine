@@ -11,7 +11,7 @@ import SwiftUI
 struct AppTabView: View {
 
     @EnvironmentObject var appState: AppState
-    @EnvironmentObject var favorites: FavoriteService
+    @EnvironmentObject var favorites: FavoritesService
     @EnvironmentObject var messages: MessageService
     @EnvironmentObject var order: Order
 

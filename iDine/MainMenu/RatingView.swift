@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class RatingService: ObservableObject {
+class RatingsService: ObservableObject {
 
     @Published var ratings = [UUID:Int]()
 
@@ -22,8 +22,8 @@ class RatingService: ObservableObject {
 
 }
 
-struct RatingsView: View {
-    @EnvironmentObject var ratings: RatingService
+struct RatingsSummaryView: View {
+    @EnvironmentObject var ratings: RatingsService
     @State var showRatingSheet = false
     let item: MenuItem
     var body: some View {
@@ -39,10 +39,10 @@ struct RatingsView: View {
             .onTapGesture {
                 self.showRatingSheet.toggle()
             }
-            .sheet(isPresented: $showRatingSheet, content: {
+            .sheet(isPresented: $showRatingSheet) {
                 RatingsSheet(presented: self.$showRatingSheet, item: self.item)
                     .modifier(SystemServices())
-            })
+            }
     }
 }
 
@@ -93,7 +93,7 @@ struct RatingsSheet: View {
 }
 
 struct RatingsRow: View {
-    @EnvironmentObject var ratings: RatingService
+    @EnvironmentObject var ratings: RatingsService
     @Binding var presented: Bool
     let item: MenuItem
     let value: Int
@@ -113,7 +113,7 @@ struct RatingsRow: View {
     }
 }
 
-struct RatingView_Previews: PreviewProvider {
+struct RatingsSheet_Previews: PreviewProvider {
     static var previews: some View {
         Text("Hello")
             .modifier(SystemServices())
