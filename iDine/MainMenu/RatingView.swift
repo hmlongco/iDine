@@ -57,9 +57,12 @@ struct RatingsSheet: View {
                     self.presented = false
                     }
                     .padding([.leading, .trailing])
+                    .padding(.top, 10)
                 }
 
             Image(item.mainImage)
+                .resizable()
+                .scaledToFit()
                 .saturation(1.25)
                 .overlay(PhotoCredit(text: item.photoCredit).offset(x: -5, y: -5), alignment: .bottomTrailing)
 
@@ -87,8 +90,8 @@ struct RatingsSheet: View {
                 Spacer()
             }
             .padding()
+
         }
-        .padding(10)
     }
 }
 
@@ -114,8 +117,9 @@ struct RatingsRow: View {
 }
 
 struct RatingsSheet_Previews: PreviewProvider {
+    @State static var presented = true
     static var previews: some View {
-        Text("Hello")
-            .modifier(SystemServices())
+        RatingsSheet(presented: Self.$presented, item: MenuItem.example)
+            .environmentObject(RatingsService())
     }
 }

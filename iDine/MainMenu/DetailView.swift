@@ -20,6 +20,8 @@ struct DetailView: View {
         ScrollView(.vertical) {
             VStack {
                 Image(item.mainImage)
+                    .resizable()
+                    .scaledToFit()
                     .saturation(1.25)
                     .overlay(PhotoCredit(text: item.photoCredit).offset(x: -5, y: -5), alignment: .bottomTrailing)
 
@@ -35,7 +37,7 @@ struct DetailView: View {
                     ItemRestrictionView(restrictions: item.restrictions)
                     }
                     .animation(.default)
-                    .padding()
+                   .padding()
 
                 Text(item.description)
                     .layoutPriority(1)
@@ -95,5 +97,6 @@ struct DetailView_Previews: PreviewProvider {
         DetailView(item: MenuItem.example)
             .environmentObject(FavoritesService())
             .environmentObject(Order())
+            .environmentObject(RatingsService())
     }
 }

@@ -100,9 +100,12 @@ struct CheckoutView: View {
 
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
-        CheckoutView()
+        let order = Order()
+        order.add(item: MenuItem.example)
+        return CheckoutView()
+            .environmentObject(order)
             .environmentObject(AppState())
-            .environmentObject(Order())
+            .accentColor(.red)
     }
 }
 
