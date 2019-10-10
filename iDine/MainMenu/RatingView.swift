@@ -72,11 +72,11 @@ struct RatingsSheet: View {
                     .font(.headline)
 
                 VStack(alignment: .leading, spacing: 10) {
-                    RatingsRow(presented: $presented, item: item, value: 5, title: "I love it and will marry it!")
-                    RatingsRow(presented: $presented, item: item, value: 4, title: "I'll marry it anyway!")
-                    RatingsRow(presented: $presented, item: item, value: 3, title: "I really, really like it!")
-                    RatingsRow(presented: $presented, item: item, value: 2, title: "I like it!")
-                    RatingsRow(presented: $presented, item: item, value: 1, title: "Kill me now...")
+                    RatingsRow(item: item, value: 5, title: "I love it and will marry it!")
+                    RatingsRow(item: item, value: 4, title: "I'll marry it anyway!")
+                    RatingsRow(item: item, value: 3, title: "I really, really like it!")
+                    RatingsRow(item: item, value: 2, title: "I like it!")
+                    RatingsRow(item: item, value: 1, title: "Kill me now...")
                     }
                     .padding()
                     .background(Color(.secondarySystemBackground))
@@ -97,7 +97,7 @@ struct RatingsSheet: View {
 
 struct RatingsRow: View {
     @EnvironmentObject var ratings: RatingsService
-    @Binding var presented: Bool
+    @State var tapped = false
     let item: MenuItem
     let value: Int
     let title: String
@@ -109,17 +109,27 @@ struct RatingsRow: View {
             Text(title)
             Spacer()
         }
+        .opacity(tapped ? 0.3 : 1.0)
+        .animation(.default)
         .onTapGesture {
-            self.ratings.rate(self.item, as: self.value)
-            self.presented = false
+            self.tapped.toggle()
+            DispatchQueue.main.delay(0.2) {
+                self.tapped.toggle()
+                self.ratings.rate(self.item, as: self.value)
+            }
         }
     }
 }
 
+extension DispatchQueue {
+    func delay(_ delay: Double, execute work: @escaping @convention(block) () -> Void) {
+        DispatchQueue.main.asyncAfter(deadline: .now() + delay, execute: work)
+    }
+}
+
 struct RatingsSheet_Previews: PreviewProvider {
-    @State static var presented = true
     static var previews: some View {
-        RatingsSheet(presented: Self.$presented, item: MenuItem.example)
+        RatingsSheet(presented: .constant(true), item: MenuItem.example)
             .environmentObject(RatingsService())
     }
 }

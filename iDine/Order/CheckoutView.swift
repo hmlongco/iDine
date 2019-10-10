@@ -105,6 +105,7 @@ struct CheckoutView_Previews: PreviewProvider {
         return CheckoutView()
             .environmentObject(order)
             .environmentObject(AppState())
+            .environmentObject(MessageService())
             .accentColor(.red)
     }
 }
