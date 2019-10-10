@@ -49,6 +49,7 @@ struct OrderView: View {
             .navigationBarItems(trailing: EditButton())
 
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
     func deleteItems(at offsets: IndexSet) {

@@ -30,6 +30,7 @@ struct MainMenuView: View {
             })
             .navigationBarTitle("iDine Menu")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
     
 }

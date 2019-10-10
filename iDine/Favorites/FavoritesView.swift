@@ -36,6 +36,7 @@ struct FavoritesView: View {
             })
             .navigationBarTitle("iDine Favorites")
         }
+        .navigationViewStyle(StackNavigationViewStyle())
     }
 
 }
