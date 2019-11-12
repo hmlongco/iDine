@@ -10,20 +10,20 @@ import SwiftUI
 
 struct FavoritesView: View {
 
-    @EnvironmentObject var appState: AppState
     @EnvironmentObject var favorites: FavoritesService
     @EnvironmentObject var menu: MenuService
 
     var body: some View {
         NavigationView {
             List {
-                if favorites.items.isEmpty {
-                    Text("No favorites selected. May we suggest?")
-                        .foregroundColor(.secondary)
-                    if menu.sections.count > 2 {
-                        MainMenuRow(item: menu.sections[0].items[0])
-                        MainMenuRow(item: menu.sections[1].items[2])
-                        MainMenuRow(item: menu.sections[2].items[2])
+                if favorites.isEmpty {
+                    if menu.representativeSample.isEmpty {
+                        Text("Loading...")
+                            .foregroundColor(.gray)
+                    } else {
+                        ForEach(menu.representativeSample) { item in
+                            MainMenuRow(item: item)
+                        }
                     }
                 } else {
                     ForEach(favorites.items) { item in

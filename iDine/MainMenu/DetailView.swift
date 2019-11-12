@@ -11,7 +11,6 @@ import SwiftUI
 struct DetailView: View {
 
     @EnvironmentObject var order: Order
-    @State var rating: Int = 0
     @State var showRatingSheet = false
 
     let item: MenuItem
@@ -37,7 +36,7 @@ struct DetailView: View {
                     ItemRestrictionView(restrictions: item.restrictions)
                     }
                     .animation(.default)
-                   .padding()
+                    .padding()
 
                 Text(item.description)
                     .layoutPriority(1)
@@ -52,9 +51,9 @@ struct DetailView: View {
                     .padding()
 
                 Button(order.ordered(item) ? "Add Another One" : "Add To Order") { self.orderNow() }
-                        .font(.headline)
-                        .padding()
-                        .animation(.default)
+                    .font(.headline)
+                    .padding()
+                    .animation(.default)
 
                 Spacer()
             }

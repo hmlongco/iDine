@@ -15,10 +15,15 @@ struct MainMenuView: View {
     var body: some View {
         NavigationView {
             List {
-                ForEach(menu.sections) { section in
-                    Section(header: Text(section.name)) {
-                        ForEach(section.items) { item in
-                            MainMenuRow(item: item)
+                if menu.sections.isEmpty {
+                    Text("Loading...")
+                        .foregroundColor(.gray)
+                } else {
+                    ForEach(menu.sections) { section in
+                        Section(header: Text(section.name)) {
+                            ForEach(section.items) { item in
+                                MainMenuRow(item: item)
+                            }
                         }
                     }
                 }

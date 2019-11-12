@@ -22,6 +22,7 @@
 		4C0F3924233400D700566AA1 /* DetailView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C0F3923233400D700566AA1 /* DetailView.swift */; };
 		4C368FCB2347E82B008FBC9B /* RatingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C368FCA2347E82B008FBC9B /* RatingView.swift */; };
 		4C368FCE2348D1A8008FBC9B /* SystemServices.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4C368FCD2348D1A8008FBC9B /* SystemServices.swift */; };
+		4CA44634236486C90089F2F7 /* Combine+Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA44633236486C90089F2F7 /* Combine+Extensions.swift */; };
 		4CA5ADCC2337A0EB00DD8E9C /* AppState.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5ADCB2337A0EB00DD8E9C /* AppState.swift */; };
 		4CA5ADD72337EB9200DD8E9C /* FavoritesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5ADD62337EB9200DD8E9C /* FavoritesView.swift */; };
 		4CA5ADD92337F56500DD8E9C /* FavoritesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4CA5ADD82337F56500DD8E9C /* FavoritesService.swift */; };
@@ -48,6 +49,7 @@
 		4C0F3923233400D700566AA1 /* DetailView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailView.swift; sourceTree = "<group>"; };
 		4C368FCA2347E82B008FBC9B /* RatingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RatingView.swift; sourceTree = "<group>"; };
 		4C368FCD2348D1A8008FBC9B /* SystemServices.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SystemServices.swift; sourceTree = "<group>"; };
+		4CA44633236486C90089F2F7 /* Combine+Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Combine+Extensions.swift"; sourceTree = "<group>"; };
 		4CA5ADCB2337A0EB00DD8E9C /* AppState.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppState.swift; sourceTree = "<group>"; };
 		4CA5ADD62337EB9200DD8E9C /* FavoritesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesView.swift; sourceTree = "<group>"; };
 		4CA5ADD82337F56500DD8E9C /* FavoritesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesService.swift; sourceTree = "<group>"; };
@@ -171,6 +173,7 @@
 			isa = PBXGroup;
 			children = (
 				4C0F391C2333F8D100566AA1 /* Helper.swift */,
+				4CA44633236486C90089F2F7 /* Combine+Extensions.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -257,6 +260,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				4C0F39062333F88E00566AA1 /* AppDelegate.swift in Sources */,
+				4CA44634236486C90089F2F7 /* Combine+Extensions.swift in Sources */,
 				4C04DD6A23354FF100EF2042 /* CheckoutView.swift in Sources */,
 				4CA5ADD72337EB9200DD8E9C /* FavoritesView.swift in Sources */,
 				4C368FCB2347E82B008FBC9B /* RatingView.swift in Sources */,

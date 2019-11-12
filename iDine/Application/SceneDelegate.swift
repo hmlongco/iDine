@@ -13,13 +13,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
     var window: UIWindow?
 
-    var appState: AppState = AppState()
-    var messages = MessageService()
-    var favorites = FavoritesService()
-    var menu = MenuService()
-    var order = Order()
-    var ratings = RatingsService()
-
     func scene(_ scene: UIScene, willConnectTo session: UISceneSession, options connectionOptions: UIScene.ConnectionOptions) {
 
         // Create the SwiftUI view that provides the window contents.

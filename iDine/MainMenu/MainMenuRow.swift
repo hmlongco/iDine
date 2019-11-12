@@ -36,7 +36,7 @@ struct ItemRestrictionView: View {
         HStack(spacing: 4) {
             ForEach(restrictions, id: \String.self) { restriction in
                 Text(restriction)
-                    .padding(5)
+                    .padding(4)
                     .background(Self.colors[restriction] ?? .gray)
                     .font(.subheadline)
                     .clipShape(Circle())

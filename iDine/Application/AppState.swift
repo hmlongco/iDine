@@ -16,9 +16,7 @@ enum AppTabs: Int {
 }
 
 class AppState: ObservableObject {
-
     @Published var currentTab = AppTabs.favorites
-
 }
 
 //class MockAppState: AppState {
