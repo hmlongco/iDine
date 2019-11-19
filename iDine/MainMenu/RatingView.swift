@@ -127,9 +127,11 @@ extension DispatchQueue {
     }
 }
 
+#if DEBUG
 struct RatingsSheet_Previews: PreviewProvider {
     static var previews: some View {
         RatingsSheet(presented: .constant(true), item: MenuItem.example)
             .environmentObject(RatingsService())
     }
 }
+#endif

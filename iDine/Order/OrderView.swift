@@ -57,6 +57,7 @@ struct OrderView: View {
     }
 }
 
+#if DEBUG
 struct OrderView_Previews: PreviewProvider {
     static var previews: some View {
         let order = Order()
@@ -65,3 +66,4 @@ struct OrderView_Previews: PreviewProvider {
             .environmentObject(order)
     }
 }
+#endif

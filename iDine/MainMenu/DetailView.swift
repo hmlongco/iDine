@@ -91,6 +91,7 @@ struct PhotoCredit: View {
     }
 }
 
+#if DEBUG
 struct DetailView_Previews: PreviewProvider {
     static var previews: some View {
         DetailView(item: MenuItem.example)
@@ -99,3 +100,4 @@ struct DetailView_Previews: PreviewProvider {
             .environmentObject(RatingsService())
     }
 }
+#endif

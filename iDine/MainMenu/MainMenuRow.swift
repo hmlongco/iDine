@@ -46,8 +46,10 @@ struct ItemRestrictionView: View {
     }
 }
 
+#if DEBUG
 struct MainMenuRow_Previews: PreviewProvider {
     static var previews: some View {
         MainMenuRow(item: MenuItem.example)
     }
 }
+#endif

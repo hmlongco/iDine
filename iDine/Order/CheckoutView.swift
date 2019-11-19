@@ -98,6 +98,7 @@ struct CheckoutView: View {
 
 }
 
+#if DEBUG
 struct CheckoutView_Previews: PreviewProvider {
     static var previews: some View {
         let order = Order()
@@ -109,4 +110,4 @@ struct CheckoutView_Previews: PreviewProvider {
             .accentColor(.red)
     }
 }
-
+#endif
